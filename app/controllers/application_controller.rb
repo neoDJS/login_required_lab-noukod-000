@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
 
   def current_user
-    params[:name] if logged_in?
+    params[:name] # if logged_in?
   end
 
   private
