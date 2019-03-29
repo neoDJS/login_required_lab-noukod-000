@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
   before_action :require_login
 
 
-  
+
 
   def current_user
     params[:name] if logged_in?
   end
-  
+
   private
 
   def require_login
