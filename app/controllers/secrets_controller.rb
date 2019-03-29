@@ -1,10 +1,4 @@
-class SsecretsController < ApplicationController
-  def new
-  end
-
-  def create
-  end
-
-  def destroy
+class SecretsController < ApplicationController
+  def show
   end
 end
