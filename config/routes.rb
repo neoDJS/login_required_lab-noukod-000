@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'ssecrets/new'
+  get 'secrets/new'
 
-  get 'ssecrets/create'
+  get 'secrets/create'
 
-  get 'ssecrets/destroy'
+  get 'secrets/destroy'
 
   root 'application#hello'
   get '/login' => 'sessions#new'
