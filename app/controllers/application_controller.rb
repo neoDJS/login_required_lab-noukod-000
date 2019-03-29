@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
   before_action :require_login
 
 
+  
 
+  def current_user
+    params[:name] if logged_in?
+  end
+  
   private
 
   def require_login
@@ -14,10 +19,6 @@ class ApplicationController < ActionController::Base
       flash[:error] = "You must be logged in to access this section"
       redirect_to new_login_url # halts request cycle
     end
-  end
-
-  def current_user
-    params[:name] if logged_in?
   end
 
   def logged_in?
