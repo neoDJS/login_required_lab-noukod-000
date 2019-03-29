@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
   before_action :require_login
 
 
+  
 
+  private
 
   def current_user
     session[:name] # if logged_in?
   end
-
-  private
 
   def require_login
     unless logged_in?
