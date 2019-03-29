@@ -8,13 +8,13 @@ RSpec.describe SessionsController do
     end
 
     it 'redirects to login page if :name is empty' do
-      post :create, name: ''
+      post :create, params: {name: ''}
       expect(response).to redirect_to controller: 'sessions', action: 'new'
     end
 
     it 'sets session[:name] if :name was given' do
       me = 'Werner Brandes'
-      post :create, name: me
+      post :create, params: {name: me}
       expect(@request.session[:name]).to eq me
     end
   end
@@ -26,7 +26,7 @@ RSpec.describe SessionsController do
     end
 
     it 'clears session[:name] if it was set' do
-      post :create, name: 'Trinity'
+      post :create, params: {name: 'Trinity'}
       expect(@request.session[:name]).to_not be nil
       post :destroy
       expect(@request.session[:name]).to be nil

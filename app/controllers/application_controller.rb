@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
 
 
 
+
+  def current_user
+    session[:name] # if logged_in?
+  end
+
   private
 
   def require_login
@@ -16,11 +21,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_user
-    params[:username] if logged_in?
-  end
-
   def logged_in?
-    !!params[:username]
+    !!session[:name]
   end
 end
